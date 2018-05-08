@@ -65,6 +65,7 @@ gulp.task('css', function() {
         .pipe(gulp.dest(config.paths.dist + '/css'));
 });
 
+//lint js files
 gulp.task('lint', function() {
     return gulp.src(config.paths.js)
                .pipe(lint({
