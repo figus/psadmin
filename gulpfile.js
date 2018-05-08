@@ -59,6 +59,7 @@ gulp.task('js', function() {
         .pipe(connect.reload());    //reloads connect servers with livereload enabled
 });
 
+//bundle all css together
 gulp.task('css', function() {
     gulp.src(config.paths.css)
         .pipe(concat('bundle.css'))
