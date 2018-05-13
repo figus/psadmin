@@ -50483,24 +50483,14 @@ var AuthorForm = React.createClass({displayName: "AuthorForm",
         return (
             React.createElement("form", {action: ""}, 
                 React.createElement("h1", null, "ManageAuthor"), 
-                React.createElement("label", {htmlFor: "firstName"}, "First Name"), 
-                React.createElement("input", {type: "text", 
-                       name: "firstName", 
-                       className: "form-control", 
-                       placeholder: "First Name", 
-                       ref: "firstName", 
+                React.createElement(Input, {name: "firstName", 
+                       label: "First Name", 
                        value: this.props.author.firstName, 
                        onChange: this.props.onChange}), 
-                React.createElement("br", null), 
-                React.createElement("label", {htmlFor: "lastName"}, "Label Name"), 
-                React.createElement("input", {type: "text", 
-                       name: "lastName", 
-                       className: "form-control", 
-                       placeholder: "Last Name", 
-                       ref: "lastName", 
+                React.createElement(Input, {name: "lastName", 
+                       label: "Last Name", 
                        value: this.props.author.lastName, 
                        onChange: this.props.onChange}), 
-                React.createElement("br", null), 
                 React.createElement("input", {type: "submit", value: "Save", className: "btn btn-default"})
             )
         );
@@ -50662,6 +50652,14 @@ module.exports = Common;
 var React = require('react');
 
 var Input = React.createClass({displayName: "Input",
+    propTypes: {
+        name: React.PropTypes.string.isRequired,
+        label: React.PropTypes.string.isRequired,
+        onChange: React.PropTypes.func.isRequired,
+        placeholder: React.PropTypes.string,
+        value: React.PropTypes.string,
+        error: React.PropTypes.string
+    },
     render: function () {
         var wrapperClass = 'form-group';
         if (this.props.error && this.props.error.length > 0) {
