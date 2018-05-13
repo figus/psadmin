@@ -2,6 +2,7 @@
 
 var React = require('react');
 var Router = require('react-router');
+var toastr = require('toastr');
 
 var AuthorForm = require('./authorForm');
 var AuthorApi = require('./../../api/authorApi');
@@ -29,6 +30,7 @@ var ManageAuthorPage = React.createClass({
     saveAuthor: function (event) {
         event.preventDefault();
         AuthorApi.saveAuthor(this.state.author);
+        toastr.success('Author saved', 'Success!');
 
         this.transitionTo('authors');
     },
